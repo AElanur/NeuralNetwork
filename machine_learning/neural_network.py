@@ -7,6 +7,9 @@ class NeuralNetwork:
         self.b1 = np.zeros(hidden_size)
         self.b2 = np.zeros(output_size)
 
+    def sigmoid(self, x):
+        return 1/ (1 + np.exp(-x))
+
     def relu(self, x):
         return np.maximum(0, x)
 
@@ -15,17 +18,22 @@ class NeuralNetwork:
         self.a1 = self.relu(self.z1)
 
         self.z2 = np.dot(self.a1, self.w2) + self.b2
-        return self.z2
+        return self.sigmoid(self.z2)
 
     def train(self, x, y, epochs=1000, lr=0.01):
         for _ in range(epochs):
             output = self.forward(x)
-            error_hidden = output - y.reshape(-1, 1)
-            dW2 = np.dot(self.a1.T, error_hidden)
+
+            error = output - y.reshape(-1, 1)
+            dW2 = np.dot(self.a1.T, error)
+            db2 = np.sum(error, axis=0)
+
+            error_hidden = np.dot(error, self.w2.T) * (self.z1 > 0)
+            dW1 = np.dot(x.T, error_hidden)
             db1 = np.sum(error_hidden, axis=0)
 
             self.w2 -= lr * dW2
             self.b2 -= lr * db2
-            self.w1 -= lr * dbW1
+            self.w1 -= lr * dW1
             self.b1 -= lr * db1
 
