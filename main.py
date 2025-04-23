@@ -1,4 +1,4 @@
-from interface.market import ppn, fruit_names, get_fruit_features
+from interface.ml_market import ppn, fruit_names, get_fruit_features
 
 def main():
     print("🍎 Fruit Preference Predictor 🍌")
