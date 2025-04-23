@@ -1,15 +1,19 @@
-import numpy as np
-from perceptron import Perceptron
+from interface.market import ppn, fruit_names, get_fruit_features
 
-X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-y = np.array([-1, -1, -1, 1])
+def main():
+    print("🍎 Fruit Preference Predictor 🍌")
+    print("Trained weights:", ppn.w_)
 
-ppn = Perceptron(eta=0.1, n_iter=10)
-ppn.fit(X, y)
+    while True:
+        features = get_fruit_features()
+        prediction = ppn.predict(features.reshape(1, -1))[0]
 
-print("\nPredictions:")
-for xi in X:
-    prediction = ppn.predict(xi)
-    print(f"Input {xi} -> Predictions: {prediction}")
+        print(f"\nPrediction: {fruit_names[prediction]}")
 
-print("\nFinal weights:", ppn.w_)
+        if input("\nPredict another (y/n): ").lower() != 'y':
+            print("Goodbye! 👋")
+            break
+
+if __name__ == "__main__":
+    main()
+
