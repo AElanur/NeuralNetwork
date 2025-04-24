@@ -1,5 +1,5 @@
 # from interface.ml_market import ppn, fruit_names, get_fruit_features
-from interface.dl_market import get_fruit_features, fruit_names, predict_fruit
+from interface.nn_market import get_fruit_features, predict_fruit
 
 def main():
     print("🍎 Fruit Preference Predictor 🍌")
@@ -7,9 +7,7 @@ def main():
 
     while True:
         features = get_fruit_features()
-        pred_class = 1 if predict_fruit(features) == "Like" else 0
-
-        print(f"\nPrediction: {fruit_names[pred_class]}")
+        print(f"\nPrediction: {'Like' if predict_fruit(features) else 'Dislike'}")
 
         if input("\nPredict another (y/n): ").lower() != 'y':
             print("Goodbye! 👋")
