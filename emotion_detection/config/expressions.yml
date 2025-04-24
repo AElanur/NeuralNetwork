@@ -1,0 +1,22 @@
+expressions:
+  mappings:
+    - input: "Something great happened!"
+      emotion: "happy"
+    - input: "This is the worst day ever!"
+      emotion: "sad"
+    - input: "Why does this always happen?"
+      emotion: "angry"
+    - input: "That movie was terrifying."
+      emotion: "fear"
+    - input: "What a pleasant surprise!"
+      emotion: "surprise"
+    - input: "I'm alright."
+      emotion: "neutral"
+
+  bot_responses:
+    happy: "Great to hear!"
+    sad: "Pour your heart out to me."
+    angry: "That's really frustrating! I'm very sorry to hear that."
+    fear: "I understand where you're coming from, but you can brave through it!"
+    surprise: "I'm just as surprised as you are!"
+    neutral: "That's alright."

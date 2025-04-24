@@ -1,5 +1,5 @@
 import numpy as np
-from machine_learning.perceptron import Perceptron
+from fruit_market.machine_learning.perceptron import Perceptron
 
 x_train = np.array([
     [0.8, 0.9, 0.7], # Apple

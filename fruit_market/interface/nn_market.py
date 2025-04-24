@@ -1,7 +1,7 @@
 import numpy as np
-from machine_learning.neural_network import NeuralNetwork
-from data.fruit_data import FEATURE_NAMES
-from data.loader import  load_fruit_data
+from fruit_market.machine_learning.neural_network import NeuralNetwork
+from emotion_detection.data import FEATURE_NAMES
+from emotion_detection.data import  load_fruit_data
 
 X_TRAIN, Y_TRAIN, cfg = load_fruit_data()
 

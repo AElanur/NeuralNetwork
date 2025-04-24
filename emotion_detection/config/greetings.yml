@@ -1,0 +1,9 @@
+greetings:
+  user_inputs:
+    - "Hello"
+    - "Hi"
+    - "Hey"
+  bot_responses:
+    - "Hello! How are you feeling?"
+    - "Hi there! What can I do for you?"
+    - "Hey! Ready to help."
